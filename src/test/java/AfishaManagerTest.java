@@ -33,13 +33,13 @@ class AfishaManagerTest {
         String obj4 = "Onward";
         String obj5 = "Bloodshot";
         String obj6 = "Van Vielder";
-        String[] expectation = {obj1, obj2, obj3, obj4, obj5};
+        String[] expectation = {obj1, obj2, obj3, obj4};
         object.addFilm(obj1);
         object.addFilm(obj2);
         object.addFilm(obj3);
         object.addFilm(obj4);
-        object.addFilm(obj5);
         Assertions.assertArrayEquals(expectation, object.findLast());
+        object.addFilm(obj5);
         object.addFilm(obj6);
         String[] expectation2 = {obj2, obj3, obj4, obj5, obj6};
         Assertions.assertArrayEquals(expectation2,object.findLast());

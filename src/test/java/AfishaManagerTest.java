@@ -47,7 +47,7 @@ class AfishaManagerTest {
 
     @Test
     void FindLastTest() {
-        AfishaManager object = new AfishaManager();
+        AfishaManager object = new AfishaManager(3);
         String obj1 = "Faster and furious";
         String obj2 = "Gentlemen";
         String obj3 = "Hotel Belgrad";
@@ -56,11 +56,11 @@ class AfishaManagerTest {
         String[] expectation = {obj1, obj2};
         object.addFilm(obj1);
         object.addFilm(obj2);
-        Assertions.assertArrayEquals(expectation, object.findLast(3));
+        Assertions.assertArrayEquals(expectation, object.findLast());
         object.addFilm(obj3);
         object.addFilm(obj4);
         object.addFilm(obj5);
         String[] expectation2 = {obj3, obj4, obj5};
-        Assertions.assertArrayEquals(expectation2, object.findLast(3));
+        Assertions.assertArrayEquals(expectation2, object.findLast());
     }
 }

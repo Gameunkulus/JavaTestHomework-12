@@ -1,40 +1,61 @@
 public class AfishaManager {
 
-    String[] films = new String[0];
-    int filmNum = 5;
+    private String[] films = new String[0];
+    private int filmNum = 5;
 
+    public String[] getFilms() {
+        return films;
+    }
+
+    public String getFilms(int i) {
+        return films[i];
+    }
+
+    public void setFilms(String[] films) {
+        this.films = films;
+    }
+
+    public int getFilmNum() {
+        return filmNum;
+    }
+
+    public void setFilmNum(int filmNum) {
+        this.filmNum = filmNum;
+    }
 
     public AfishaManager(int filmNum) {
-        this.filmNum = filmNum;
+        setFilmNum(filmNum);
     }
 
     public AfishaManager() {
     }
 
     public String addFilm(String film) {
-        String[] newList = new String[films.length + 1];
-        for (int i = 0; i < films.length; i++) {
-            newList[i] = films[i];
+        int filmLength = getFilms().length;
+        String[] newList = new String[filmLength + 1];
+        for (int i = 0; i < filmLength; i++) {
+            newList[i] = getFilms(i);
         }
         newList[newList.length - 1] = film;
-        films = newList;
+        setFilms(newList);
         return newList[newList.length - 1];
     }
 
     public String[] findAll() {
-        return films;
+        return getFilms();
     }
 
     public String[] findLast() {
-        int resultLength = filmNum;
+        int resultLength = getFilmNum();
+        int filmLength = getFilms().length;
 
-        if (resultLength > films.length) {
-            return films;
+        if (resultLength > filmLength) {
+            return getFilms();
         } else {
             String[] listLast = new String[resultLength];
-            int diff = films.length - resultLength;
+            int diff = filmLength - resultLength;
             for (int i = 0; i < resultLength; i++) {
-                listLast[i] = films[diff + i];
+                listLast[i] = getFilms(diff + i);
             }
             return listLast;
         }
